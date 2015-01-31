@@ -4,16 +4,16 @@ Files that may help you interact with echonest\n\n
 
 
 ## aqplayer
-*Dependencies*\n\n
+**Dependencies**
 
 To use aqplayer.py, you will need:
-\n      - pyaudio 
-\n      - wave 
+      - pyaudio 
+      - wave 
 
-*Example*\n\n
+**Example**
 Simply initialize the aqplayer with a wav file.
 Then you can feed it any type of AudioQuantum to be played.
-```
+```python
 __author__ = 'lukestack'
 
 import echonest.remix.audio as audio
@@ -23,7 +23,7 @@ from aqplayer import player
 If you do not have the wav file, you can create one using pydub.AudioSegment(see code below)
     from pydub import AudioSegment
     sound = AudioSegment.from_file(inuput_file)
-    sound.export(output_file, format="wav") #make output_file a .wav
+    sound.export(output_file, format="wav")
 """
 
 wav_file = "WAVSongs/15 Sir Duke.wav"
