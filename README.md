@@ -7,10 +7,13 @@ Files that may help you interact with echonest\n\n
 **Dependencies**
 
 To use aqplayer.py, you will need:
-      - pyaudio 
+
+      - pyaudio
+ 
       - wave 
 
 **Example**
+
 Simply initialize the aqplayer with a wav file.
 Then you can feed it any type of AudioQuantum to be played.
 ```python
