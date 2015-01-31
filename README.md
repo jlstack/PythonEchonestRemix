@@ -1,6 +1,6 @@
 # PythonEchonestRemix
 
-Files that may help you interact with echonest\n\n
+Files that may help you interact with echonest
 
 
 ## aqplayer
