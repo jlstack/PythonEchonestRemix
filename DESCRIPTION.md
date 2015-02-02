@@ -9,7 +9,7 @@ In the initializer, aqplayer first creates a pyaudio object. It then retrieves t
         self.stream = self.p.open(format=self.p.get_format_from_width(self.wf.getsampwidth()),
                                 channels=self.af.numChannels, rate=self.af.sampleRate, output=True)
 ```
-To find the start of the wav frames to be fed to the stream, aqplayer multiplies the starting time of the 'echonest.remix.audio.AudioQuantum' by the wav framerate. To calculate the number of frames, aqplayer multiplies the duration of the 'echonest.remix.audio.AudioQuantum' by the wav framerate. After these values are found, the position of the wave is set, and the frames read using wave's readframes method. These frames are written to the stream.
+To find the start of the wave frames to be fed to the stream, aqplayer multiplies the starting time of the 'echonest.remix.audio.AudioQuantum' by the wave framerate. To calculate the number of frames, aqplayer multiplies the duration of the 'echonest.remix.audio.AudioQuantum' by the wave framerate. After these values are found, the position of the wave is set, and the frames read using wave's readframes method. These frames are written to the stream to be played.
 ```python
     def play(self, AudioQuantum, intro=True):
         """
