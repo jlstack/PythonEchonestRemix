@@ -4,6 +4,11 @@ Files that may help you interact with echonest
 
 
 ## aqplayer
+**Process**
+
+aqplayer first creates a pyaudio object. It then opens a pyaudio stream with the wav file associated with the 'echonest.remix.audio.LocalAudioFile'. aqplayer then calculates the frames associated with the given quantum and feeds them to the stream to be played.
+
+
 **Dependencies**
 
 To use aqplayer.py, you will need:
@@ -13,7 +18,7 @@ To use aqplayer.py, you will need:
 
 **Example**
 
-Simply initialize the aqplayer with a wav file.
+Simply initialize the aqplayer with an 'echonest.remix.audio.LocalAudioFile'.
 Then you can feed it any type of AudioQuantum to be played.
 ```python
 __author__ = 'lukestack'
