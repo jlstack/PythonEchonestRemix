@@ -28,11 +28,3 @@ To find the start of the wav frames to be fed to the stream, aqplayer multiplies
         self.stream.write(self.wf.readframes(numframes))
 ```
 Make sure to close the pyaudio stream when you are done by calling the closeStream() method.
-
-**Information About Waves**
-
-The things you need to know about waves are:
-
-	-wave files store file data in an array
-	-a wave framesrate is the number of frames per second for a file
-	-to find the frames associated with a given time, multiply the sime by the framerate
