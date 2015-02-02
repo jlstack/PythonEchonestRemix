@@ -10,9 +10,9 @@ It opens a pyaudio stream and feeds it the wave frames to be played.
 class player:
 
     def __init__(self, wave_file):
-        p = pyaudio.PyAudio()
+        self.p = pyaudio.PyAudio()
         self.wf = wave.open(wave_file, 'rb')
-        self.stream = p.open(format=self.p.get_format_from_width(self.wf.getsampwidth()),
+        self.stream = self.p.open(format=self.p.get_format_from_width(self.wf.getsampwidth()),
                                 channels=self.wf.getnchannels(), rate=self.wf.getframerate(), output=True)
 
     def play(self, AudioQuantum):
