@@ -5,7 +5,7 @@ import wave
 import tempfile
 from echonest.remix.support.ffmpeg import ffmpeg
 
-class player:
+class Player:
     """
     Plays an echonest.remix.audio.AudioQuantum given an echonest.remix.audio.LocalAudioFile.
     It opens a pyaudio stream and feeds it the wave frames to be played.
