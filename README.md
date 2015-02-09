@@ -49,7 +49,7 @@ The only method that should ever be called by the user is get_beat_distance().
 import echonest.remix.audio as audio
 import BeatDistance
 
-audio_file = audio.LocalAudioFile("MP3Songs/15 Sir Duke.m4a")
+audio_file = audio.LocalAudioFile("15 Sir Duke.m4a")
 beats = audio_file.analysis.beats
 
 beat1 = beats.__getitem__(0)
