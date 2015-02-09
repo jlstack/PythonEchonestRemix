@@ -2,7 +2,7 @@ __author__ = 'lukestack'
 import math
 
 """
-This a way of comparing two 'echonest.remix.audio.AudioQuantum' beats.
+This class allows you to compare two 'echonest.remix.audio.AudioQuantum'. 
 This method of comparing beats is almost identical to the way Paul Lamere compares
 beats in the InfiniteJukebox. Only minor changes have been made.
 """
