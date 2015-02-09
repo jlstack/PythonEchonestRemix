@@ -15,6 +15,9 @@ durationWeight = 100
 confidenceWeight = 1
 
 def get_beat_distance(beat1, beat2):
+    if type(beat1) != echonest.remix.audio.AudioQuantum or type(beat1) != echonest.remix.audio.AudioQuantum or \
+                    beat1.kind != "beat" or beat2.kind != "beat":
+        raise Exception("make sure both parameters are type <'echonest.remix.audio.AudioQuantum'>' and of kind 'beat'")
     if len(beat1.segments) > len(beat2.segments):
         segs = len(beat2.segments)
     else:
