@@ -41,7 +41,7 @@ aqplayer.closeStream() #close the audiostream when done
 ##BeatDistance
 
 Beat Distance is static and used to compare two 'echonest.remix.audio.AudioQuantum' of kind 'beat'.
-The only method that should ever be called is get_beat_distance()
+The only method that should ever be called by the user is get_beat_distance().
 
 **Example**
 
