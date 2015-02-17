@@ -33,6 +33,8 @@ durationWeight = 100
 confidenceWeight = 1
 ```
 
+By default, Paul Lamere sets the distance between two segments equal to 100. If beat1 has more segments than beat2, 100's are added to the sum in place of a real ristance measurement. This means that the distance from beat1 to beat2 is not necessarily the same as the distance from beat2 to beat1. I do not have this default value in my code. Instead, I look to see which beat has the fewest number of segments. I then only compare this many segments.
+
 My implementation.
 
 ```python
@@ -67,9 +69,6 @@ for (var j = 0; j < q1.overlappingSegments.length; j++) {
             sum += distance;
         }
 ```
-
-By default, Paul Lamere sets the distance between two segments equal to 100. If beat1 has more segments than beat2, 100's are added to the sum in place of a real ristance measurement. This means that the distance from beat1 to beat2 is not necessarily the same as the distance from beat2 to beat1. I do not have this default value in my code. Instead, I look to see which beat has the fewest number of segments. I then only compare this many segments.  
-
 
 You may have noticed __seg_distance__(seg1, seg2, field) being called. __seg_distance__() just calls __euclidean_distance__() with the right list of values based on the field given. The field will either be 'timbre' or 'pitch'. __euclidean_distance__() uses the same distance formula everyone uses in high school geometry. sqrt((q1-p1)^2 + (q2-p2)^2 + ...)
 
