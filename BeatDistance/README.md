@@ -1,7 +1,7 @@
 ##BeatDistance
 
 Beat Distance is static and used to compare two 'echonest.remix.audio.AudioQuantum' of kind 'beat'.
-The only method that should ever be called by the user is get_beat_distance().
+The only method that should ever be called by the user is get_beat_distance(). This method of comparing beats is almost identical to the way Paul Lamere compares beats in the InfiniteJukebox. Only minor changes have been made.
 
 **Example**
 
@@ -15,8 +15,10 @@ beats = audio_file.analysis.beats
 beat1 = beats[0]
 beat2 = beats[1]
 
-print BeatDistance.get_beat_distance(beat1, beat2) #returns a numeric value for the "distance" between the two
+print BeatDistance.get_beat_distance(beat1, beat2) #returns a numeric value for the distance between the two
 ```
+
+In InfiniteJukebox, beats with a distance <= 80 are considered similar enough to branch between.
 
 **Code Explanation**
 
