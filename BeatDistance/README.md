@@ -70,7 +70,7 @@ for (var j = 0; j < q1.overlappingSegments.length; j++) {
         }
 ```
 
-You may have noticed seg_distance(seg1, seg2, field) being called. seg_distance() just calls euclidean_distance() with the right list of values based on the field given. The field will either be 'timbre' or 'pitch'. __euclidean_distance__() uses the same distance formula everyone uses in high school geometry. sqrt((q1-p1)^2 + (q2-p2)^2 + ...)
+You may have noticed seg_distance(seg1, seg2, field) being called. seg_distance() just calls euclidean_distance() with the right list of values based on the field given. The field will either be 'timbre' or 'pitch'. euclidean_distance() uses the same distance formula everyone uses in high school geometry. sqrt((q1-p1)^2 + (q2-p2)^2 + ...)
 
 ```python
 sum = 0
