@@ -45,7 +45,7 @@ if len(beat1.segments) > len(beat2.segments):
     return average
 ```
 
-Paul Lamere's InfiniteJukebox implementation. Paul Lamere compares the number of segments located in beat1. If beat2 does not have at least as many segments as beat1, 100's are added in place of the actual distance between segments. 
+Paul Lamere's InfiniteJukebox implementation. If the segments are the same, the distance is given a value of 100. I do not have this in my code.
 
 ```javascript
 for (var j = 0; j < q1.overlappingSegments.length; j++) {
