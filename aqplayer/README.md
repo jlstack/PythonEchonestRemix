@@ -1,3 +1,38 @@
+## aqplayer
+
+Play an audio.AudioQuantum using PyAudio
+
+**Process**
+
+Aqplayer first creates a pyaudio object. It then opens a pyaudio stream with the wav file associated with the 'echonest.remix.audio.LocalAudioFile'. Aqplayer then calculates the frames associated with the given quantum and feeds them to the stream to be played. For more detail, refer to the DESCRIPTION.md.
+
+
+**Dependencies**
+
+To use aqplayer.py, you will need:
+
+      - pyaudio
+      - ffmpeg
+
+**Example**
+
+Simply initialize the aqplayer with an 'echonest.remix.audio.LocalAudioFile'.
+Then you can feed it any type of AudioQuantum to be played.
+```python
+import echonest.remix.audio as audio
+from aqplayer import Player
+
+audio_file = audio.LocalAudioFile("15 Sir Duke.m4a")
+bars = audio_file.analysis.bars
+
+aqplayer = Player(audio_file) #creates a Player given an 'echonest.remix.audio.LocalAudioFile'
+
+for bar in bars:
+    aqplayer.play(bar) #give play() any 'echonest.remix.audio.AudioQuantum' to be played (section, bar, beat, etc...)
+
+aqplayer.closeStream() #close the audiostream when done
+```
+
 **Code Explanation**
 
 In the initializer, aqplayer first creates a pyaudio object. It then retrieves the wave file associated with the 'echonest.remix.audio.LocalAudioFile' and opens it using the built in wave module. After opening the wave, a stream is opened using the pyaudio object. The parameters used to open the stream are retrieved from the wave file.
