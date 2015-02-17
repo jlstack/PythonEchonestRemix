@@ -39,12 +39,12 @@ def get_beat_distance(beat1, beat2):
         segs = len(beat1.segments)
     total = 0
     for seg in range(0, segs):
-        total += __get_seg_distance__(beat1.segments[seg], beat2.segments[seg]) #adds each distance between individual segments to the total
+        total += __get_seg_distances__(beat1.segments[seg], beat2.segments[seg]) #adds each distance between individual segments to the total
     average = total / segs #takes the average distance between segments
     return average
 
 
-def __get_seg_distance__(seg1, seg2):
+def __get_seg_distances__(seg1, seg2):
     """
     Takes the distance between individual segments.
 

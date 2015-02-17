@@ -44,7 +44,7 @@ if len(beat1.segments) > len(beat2.segments):
         segs = len(beat1.segments)
     total = 0
     for seg in range(0, segs):
-        total += __get_seg_distance__(beat1.segments[seg], beat2.segments[seg]) #adds each distance between individual segments to the total
+        total += __get_seg_distances__(beat1.segments[seg], beat2.segments[seg]) #adds each distance between individual segments to the total
     average = total / segs #takes the average distance between segments
     return average
 ```
