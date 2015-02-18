@@ -33,7 +33,7 @@ class Player:
             file_to_read = self.af.convertedfile
         return file_to_read
 
-    def play(self, AudioQuantum, intro=True):
+    def play(self, AudioQuantum, intro=False):
         """
         Accepts any echonest.remix.audio.AudioQuantum and audibly plays it for you.
         If the AudioQuantum is the first one present, it will play any frames before
