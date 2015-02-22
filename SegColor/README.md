@@ -16,9 +16,9 @@ print sc.getSegmentColor(bounds, segs[0]) #should be a hex value
 There are only two methods in SegColor. The first normalizeColor() retrieves the mins and maxs of the timbre values for the entire song. These values are later used to turn the timbre values into a decimal ranging from 0 to 1. The decimal is then multiplied by 255 to give an appropriate color value for each rgb color (since the RGB color system uses values from 0 to 255).
 
 The timbre values used for the colors:
-    * Red - timbre value 3 which is the "flatness of a sound" 
-    * Green - timbre value 4 which has to do with the "attack" of the segment
-    * Blue - timbre value 2 which correlates to the "brightness" of the segment
+*Red - timbre value 3 which is the "flatness of a sound" 
+*Green - timbre value 4 which has to do with the "attack" of the segment
+*Blue - timbre value 2 which correlates to the "brightness" of the segment
 
 For more about timbre visit [Analyzer Documentation]
 
