@@ -7,8 +7,10 @@ import echonest.remix.audio as audio
 
 def findBranches(audio_file):
     print "Finding branches. Be patient, this could take a while..."
-    filename= os.path.splitext(os.path.split(audio_file.filename)[1])[0]
-    print "finding branches for",filename
+    if ".remix-db/audio" in audio_file.filename:
+        filename = os.path.splitext(os.path.split(audio_file.filename)[1])[0]
+    else:
+        filename = hashlib.md5(file(audio_file.filename, 'rb').read()).hexdigest()
     beats = audio_file.analysis.beats
     branches = {}
     for i in range(len(beats)):
