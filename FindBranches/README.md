@@ -58,6 +58,6 @@ if not os.path.isfile(pklname):
 pkl = open(pklname, 'r')
 branches = pickle.load(pkl)[0]
 if branches.has_key(4):
-    print branches[4] #will print a list of tuples containing all branchable beats with the appropriate distance
+    print branches[4] #list of tuples containing all branchable beats with their appropriate distance
 
 ```
