@@ -5,6 +5,9 @@ SegColor is static and used to produce a visual representation of an 'echonest.r
 **Example**
 
 ```python
+import echonest.remix.audio as audio
+import SegColor as sc
+
 audio_file = audio.LocalAudioFile("15 SirDuke.m4a")
 segs = audio_file.analysis.segments
 bounds = sc.normalizeColor(audio_file)
