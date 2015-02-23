@@ -76,7 +76,7 @@ def play(canvas, audio_file, branches, threshold):
             canvas.delete(cur)
         if i == lastBranch or (branches.has_key(i) and randomInt == 1):
             branchTo = random.choice(branches[i])
-            if branchTo[0] < lastBranch and branchTo[1] <= threshold:
+            if i == lastBranch or (branchTo[0] < lastBranch and branchTo[1] <= threshold):
                 bran = drawCurrentBranch(canvas, width, i, branchTo[0])
                 i = branchTo[0]
         cur = drawCurrentBeat(canvas, width, i)
