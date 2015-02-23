@@ -16,7 +16,9 @@ You must have an Echonest API key set up on your machine to use the program.
 
 **Process**
 
-InfiniteJukeboxReplica uses branches found and stored with [FindBranches]. These branches are found using [BeatDistance] to calculate the distance between beats. To assign colors to each beat [SegColor] is used. These are the colors used when drawing the beat tiles and the branches between beats. To play the audio of the song, [aqplayer] is used. The main process the program uses is found in the play() method.
+InfiniteJukeboxReplica uses all of the files located in [PythonEchonestRemix]. First, branches are found and stored with [FindBranches]. These branches are found using [BeatDistance] to calculate the distance between all of the beats within a song. [SegColor] is used to assign color to each beat tile and branch. To play the audio of the song, a Player is created using [aqplayer]. 
+
+The main process the program uses is found in the play() method.
 
 ```python
 def play(canvas, audio_file, branches, threshold):
@@ -50,6 +52,7 @@ In play(), a Player is created using the LocalAudioFile. The last branch is then
 
 If you want to readjust your threshold, just close the canvas and reopen it with the new threshold value. Notice that the lastbranch will always appear, even if you set the threshold to 0. This is to ensure that it never stops playing.
 
+[PythonEchonestRemix]: https://github.com/jlstack/PythonEchonestRemix
 [aqplayer]: https://github.com/jlstack/PythonEchonestRemix/tree/master/aqplayer
 [BeatDistance]: https://github.com/jlstack/PythonEchonestRemix/tree/master/BeatDistance
 [FindBranches]: https://github.com/jlstack/PythonEchonestRemix/tree/master/FindBranches
