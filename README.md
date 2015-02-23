@@ -5,7 +5,7 @@
 A Python implementation of Paul Lamere's InfiniteJukebox. Some liberties were taken to simplify the code.
 
 
-Files that may help you interact with echonest
+**Files used in the InfiniteJukeboxReplica that may also help you interact with echonest.**
 
 ## [aqplayer]
 
