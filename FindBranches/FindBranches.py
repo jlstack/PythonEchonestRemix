@@ -4,6 +4,7 @@ import BeatDistance
 import pickle
 import os
 import echonest.remix.audio as audio
+import hashlib
 
 def findBranches(audio_file):
     print "Finding branches. Be patient, this could take a while..."
