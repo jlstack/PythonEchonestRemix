@@ -46,4 +46,9 @@ def play(canvas, audio_file, branches, threshold):
         i+=1
 ```
 
-In play(), a Player is created using the LocalAudioFile. The last branch is then found by finding the key with the greatest value. The first beat is played before the loop because it has extra frames that must be played at the beginning of the song since the first beat rarely falls on second 0.0 of a song. After that, an endless loop is used to play the song "forever." The loop checks every beat to see if it has any branchable beats associated with it. If it does, there is a 50% chance that a branch will be taken for the given beat. If you want to readjust your threshold, just close the canvas and reopen it with the new threshold value. Notice that the lastbranch will always appear, even if you set the threshold to 0. This is to ensure that it never stops playing.  
+In play(), a Player is created using the LocalAudioFile. The last branch is then found by finding the key with the greatest value. The first beat is played before the loop because it has extra frames that must be played at the beginning of the song since the first beat rarely falls on second 0.0 of a song. After that, an endless loop is used to play the song "forever." The loop checks every beat to see if it has any branchable beats associated with it. If it does, there is a 50% chance that a branch will be taken for the given beat. If you want to readjust your threshold, just close the canvas and reopen it with the new threshold value. Notice that the lastbranch will always appear, even if you set the threshold to 0. This is to ensure that it never stops playing.
+
+[aqplayer]: https://github.com/jlstack/PythonEchonestRemix/tree/master/aqplayer
+[BeatDistance]: https://github.com/jlstack/PythonEchonestRemix/tree/master/BeatDistance
+[FindBranches]: https://github.com/jlstack/PythonEchonestRemix/tree/master/FindBranches
+[SegColor]: https://github.com/jlstack/PythonEchonestRemix/tree/master/SegColor  
