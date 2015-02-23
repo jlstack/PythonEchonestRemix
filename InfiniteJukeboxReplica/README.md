@@ -1,6 +1,6 @@
 ##InfiniteJukeboxReplica
 
-InfiniteJukeboxReplica is a Python implementation of Paul Lamere's InfiniteJukebox. Some liberties were taken to simplify the code. Just run the InfiniteJukeBoxApp.py and a gui will pop up. Put the path of your song into the textbox and choose your threshold. Threshold can be thought of as the quality of the branches. The lower the threshold, the better the branches will sound but a fewer number of branches will exist.
+InfiniteJukeboxReplica is a Python implementation of Paul Lamere's [InfiniteJukebox]. Some liberties were taken to simplify the code. Just run the InfiniteJukeBoxApp.py and a gui will pop up. Put the path of your song into the textbox and choose your threshold. Threshold can be thought of as the quality of the branches. The lower the threshold, the better the branches will sound but a fewer number of branches will exist.
 
 **Dependencies**
 
@@ -52,6 +52,7 @@ In play(), a Player is created using the LocalAudioFile. The last branch is then
 
 If you want to readjust your threshold, just close the canvas and reopen it with the new threshold value. Notice that the lastbranch will always appear, even if you set the threshold to 0. This is to ensure that it never stops playing.
 
+[InfiniteJukebox]: http://labs.echonest.com/Uploader/index.html
 [PythonEchonestRemix]: https://github.com/jlstack/PythonEchonestRemix
 [aqplayer]: https://github.com/jlstack/PythonEchonestRemix/tree/master/aqplayer
 [BeatDistance]: https://github.com/jlstack/PythonEchonestRemix/tree/master/BeatDistance
