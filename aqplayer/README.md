@@ -3,6 +3,7 @@
 Play an audio.AudioQuantum using PyAudio
 
 **Problem**
+
 Before creating Aqplayer I could not play audio in Python directly. You had to output a whole new audio file, but I needed to play music in real time in order to replicate the InfiniteJukebox for an S-STEM research project. After Dr.Parry helped us figuring out how to index wav files and how to feed frames to a Pyaudio stream, I wanted to package it up into its own class. I did this so I would not have to repeat code and in hopes that others could use it.
 
 
