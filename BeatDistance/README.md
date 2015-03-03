@@ -3,6 +3,10 @@
 Beat Distance is static and used to compare two 'echonest.remix.audio.AudioQuantum' of kind 'beat'.
 The only method that should ever be called by the user is get_beat_distance(). This method of comparing beats is almost identical to the way Paul Lamere compares beats in the InfiniteJukebox. Only minor changes have been made.
 
+**Problem**
+
+In order to replicate the InfiniteJukebox, I needed to be able to compare beats. This is a crucial part of locating branches within a song. Since I was trying to make a replica, I implemented Paul Lamere's method in Python(with minor tweaks). This method is nice, because it gives a quantitative value for the distance between two beats.
+
 **Example**
 
 ```python
