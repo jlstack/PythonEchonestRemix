@@ -3,7 +3,6 @@ __author__ = 'lukestack'
 import BeatDistance
 import pickle
 import os
-import echonest.remix.audio as audio
 import hashlib
 
 def findBranches(audio_file):
@@ -32,4 +31,16 @@ def findBranches(audio_file):
     if not os.path.exists(os.path.dirname(os.path.realpath(__file__)) + "/Branches"):
         os.makedirs(os.path.dirname(os.path.realpath(__file__)) + "/Branches")
     with open(os.path.dirname(os.path.realpath(__file__)) + "/Branches/" + filename + ".pkl", 'w') as outfile:
-        pickle.dump([branches, branches], outfile)
+        pickle.dump(branches, outfile)
+
+def getBranches(audio_file):
+    if ".remix-db/audio" in audio_file.filename:
+        filename = os.path.splitext(os.path.split(audio_file.filename)[1])[0]
+    else:
+        filename = hashlib.md5(file(audio_file.filename, 'rb').read()).hexdigest()
+    pklname = os.path.dirname(os.path.realpath(__file__)) + "/Branches/" + filename + ".pkl"
+    if not os.path.isfile(pklname):
+        findBranches(audio_file)
+    pkl = open(pklname, 'r')
+    return pickle.load(pkl)
+
