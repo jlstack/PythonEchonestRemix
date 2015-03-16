@@ -1,4 +1,5 @@
 __author__ = 'lukestack'
+
 import echonest.remix.audio as audio
 import os
 from aqplayer import Player
@@ -70,9 +71,9 @@ def play(canvas, audio_file, branches, threshold):
     i = 1
     while i < len(beats):
         randomInt = random.randint(0,1)
-        if bran != None:
+        if bran is not None:
             canvas.delete(bran)
-        if cur != None:
+        if cur is not None:
             canvas.delete(cur)
         if i == lastBranch or (branches.has_key(i) and randomInt == 1):
             branchTo = random.choice(branches[i])
@@ -86,12 +87,8 @@ def play(canvas, audio_file, branches, threshold):
 
 def main(filename, threshold):
     audio_file = audio.LocalAudioFile(filename)
-    pklname = os.path.dirname(os.path.realpath(__file__)) + "/Branches/" + \
-              hashlib.md5(file(filename, 'rb').read()).hexdigest() + ".pkl"
-    if not os.path.isfile(pklname):
-        fb.findBranches(audio_file)
-    pkl = open(pklname, 'r')
-    branches = pickle.load(pkl)[0]
+    branches = fb.getBranches(audio_file)
+    print branches
     window = Tk()
     canvas = Canvas(window, height=900, width=1440)
     song = os.path.split(filename)[1]
