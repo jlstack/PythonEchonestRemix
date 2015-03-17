@@ -54,3 +54,6 @@ class Player:
         closes pyaudio stream
         """
         self.stream.close()
+	self.wf.close()
+	self.af.unload()
+	self.p.terminate()
