@@ -18,7 +18,7 @@ def main():
         ts = audio.AudioData(ndarray=scaled_beat, shape=scaled_beat.shape,
                                      sampleRate=audiofile.sampleRate, numChannels=scaled_beat.shape[1])
         player.play_from_AudioData(ts)
-
+    player.close_stream()
 if __name__ == '__main__':
     main()
 
