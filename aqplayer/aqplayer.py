@@ -4,7 +4,9 @@ import wave
 import tempfile
 from echonest.remix.support.ffmpeg import ffmpeg
 
-
+"""
+Special thanks to Dr.Parry for adding linux compatibility.
+"""
 class Player:
     """
     Plays an echonest.remix.audio.AudioQuantum given an echonest.remix.audio.LocalAudioFile.
@@ -20,8 +22,8 @@ class Player:
             self.stream.setparameters(ossaudiodev.AFMT_S16_LE, self.af.numChannels, self.af.sampleRate)
         else:
             import pyaudio
-            p = pyaudio.PyAudio()
-            self.stream = p.open(format=p.get_format_from_width(self.wf.getsampwidth()),
+            self.p = pyaudio.PyAudio()
+            self.stream = self.p.open(format=self.p.get_format_from_width(self.wf.getsampwidth()),
                                  channels=self.af.numChannels, rate=self.af.sampleRate, output=True)
 
     def get_wav(self):
@@ -75,3 +77,4 @@ class Player:
         self.af.unload()
         if self.p is not None:
             self.p.terminate()
+
