@@ -6,7 +6,6 @@ import SegColor
 import aqplayer
 import threading
 
-
 audio_file = audio.LocalAudioFile("MP3Songs/15 Sir Duke.m4a")
 audio_data = audio_file.render().data
 audio_data = (audio_data[:, 0] + audio_data[:, 1]) / 2
@@ -35,6 +34,13 @@ for i in range(0, len(segments)):
     ax.plot([loudest_point, end], [segments[i].loudness_max, next_seg_loudness], linewidth=2, color=color)
     ax.fill_between([loudest_point, end], [segments[i].loudness_max, next_seg_loudness], -60, color=color)
 
+# plots for legend
+ax.plot([sections[0].start, sections[0].start], [-30, -60], linewidth=4, color='black', label="Section")
+ax.plot([bars[0].start, bars[0].start], [-37.5, -60], linewidth=3.5, color='blue', label="Bar")
+ax.plot([beats[0].start, beats[0].start], [-45, -60], linewidth=3, color='green', label="Beat")
+ax.plot([tatums[0].start, tatums[0].start], [-52.5, -60], linewidth=2.5, color='red', label="Tatum")
+
+# plots every tatum, beat, bar and section
 for sect in sections:
     ax.plot([sect.start, sect.start], [-30, -60], linewidth=4, color='black')
 
@@ -47,41 +53,42 @@ for beat in beats:
 for tat in tatums:
     ax.plot([tat.start, tat.start], [-52.5, -60], linewidth=2.5, color='red')
 
-ax.plot([sections[0].start, sections[0].start], [-30, -60], linewidth=4, color='black', label="Section")
-ax.plot([bars[0].start, bars[0].start], [-37.5, -60], linewidth=3.5, color='blue', label="Bar")
-ax.plot([beats[0].start, beats[0].start], [-45, -60], linewidth=3, color='green', label="Beat")
-ax.plot([tatums[0].start, tatums[0].start], [-52.5, -60], linewidth=2.5, color='red', label="Tatum")
 
-ax.set_xlim([0, 10])
+ax.set_xlim([0, 15])
 ax.set_ylim(-60, 0)
 ax.legend()
-plt.show(block=True)
 
 
-# need help making it run
+curr_beat = beats[0]
+cursor, = ax.plot(curr_beat.start, -55, color='green', markersize=10, marker='s')
+plt.show(block=False)
+playing = True
 
 
-def update_cursor(cursor, x):
-    cursor.set_xdata(x)
-    fig.canvas.draw()
+def update_cursor():
+    global curr_beat
+    last_beat = curr_beat
+    while playing:
+        if last_beat != curr_beat:
+            cursor.set_xdata(curr_beat.start)
+            fig.canvas.draw()
+            last_beat = curr_beat
 
 
 def play_music():
+    global curr_beat
+    global playing
     player = aqplayer.Player()
-    beat = beats[0]
-    cursor, = ax.plot(0, -55, color='green', markersize=10, marker='s')
-    dt = 0.001
-    timer = fig.canvas.new_timer(interval=dt*1000.0)
-    timer.add_callback(update_cursor, cursor, beat.start)
-    timer.start()
-    for b in beats:
-        beat = b
-        player.play(beat)
+    for beat in beats:
+        print beat.start
+        curr_beat = beat
+        player.play(curr_beat)
+    playing = False
     player.close_stream()
 
 
-# play_music()
-# thread1 = threading.Thread(target=play_music)
-# thread2 = threading.Thread(target=run_cursor)
-# thread2.start()
-# thread1.start()
+thread1 = threading.Thread(target=play_music)
+thread2 = threading.Thread(target=update_cursor)
+
+thread1.start()
+thread2.start()
