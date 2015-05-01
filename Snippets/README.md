@@ -10,7 +10,7 @@ Snippets has one function that creates the transition files. Make_song_snippet t
 
 **Example**
 
-The code below produces 10 random transitions for the given song. Transitions are found using [BeatDistance].
+The code below produces 10 random nippets for the given song. Branches are fetched using [FindBranches].
 
 ```python
 audio_file1 = audio.LocalAudioFile("15 Sir Duke.m4a")
@@ -20,4 +20,4 @@ for i in range(10):
     beat2 = random.choice(branches[beat1])[0]
     make_song_snippet(beat1, beat2, audio_file1, audio_file1)
 ```
-[BeatDistance]:https://github.com/jlstack/PythonEchonestRemix/tree/master/BeatDistance
+[FindBranches]:https://github.com/jlstack/PythonEchonestRemix/tree/master/FindBranches
