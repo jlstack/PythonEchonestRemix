@@ -10,7 +10,7 @@ It is often difficult for people to understand the data that Echonest provides f
 
 **Dependencies**
 
-    - [SegColor]
+    - SegColor
 
 **How it Works**
 
