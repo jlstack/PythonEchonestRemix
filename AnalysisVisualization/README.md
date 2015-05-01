@@ -1,4 +1,4 @@
-<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/BackInBlackAnalysisVisual.png" height="400" width="450" align="middle"/> <img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/SirDukeAnalysisVisual.png" height="400" width="450" align="middle"/>
+<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/BackInBlackAnalysisVisual.png" height="400" width="400" align="middle"/> <img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/SirDukeAnalysisVisual.png" height="400" width="400" align="middle"/>
 
 ##AnalysisVisualization
 
