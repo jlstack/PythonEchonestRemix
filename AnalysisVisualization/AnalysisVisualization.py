@@ -7,6 +7,7 @@ import aqplayer
 
 SONG_DIR = "MP3Songs/"
 SONG = "15 Sir Duke.m4a"
+OUTPUT_NAME = "SirDukeAnalysisVisual.png"
 
 audio_file = audio.LocalAudioFile(SONG_DIR + SONG)
 bounds = SegColor.normalizeColor(audio_file)
@@ -61,7 +62,7 @@ ax.legend()
 fig.suptitle(SONG, fontsize=20)
 plt.xlabel('Seconds', fontsize=16)
 plt.ylabel('Decibels (dB)', fontsize=16)
-plt.savefig("SirDukeAnalysisVisual.png")
+plt.savefig(OUTPUT_NAME)
 plt.show(block=True)
 
 
