@@ -1,4 +1,4 @@
-<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/InfiniteJukeboxReplica/Images/InfinitePlaylist.png" align="middle"/>
+<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/InfiniteJukeboxReplica/Images/InfinitePlaylist.png" height="400" width="800" align="middle"/>
 
 ##InfiniteJukeboxReplica
 
