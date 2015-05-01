@@ -9,6 +9,7 @@ A simple visualization to see some of the data provided by Echonest.
 It is often difficult for people to understand the data that Echonest provides for us. To help them understand, Dr.Parry and I discussed creating a visual representation. This respresentation would need some method of displaying the audio, as well as the markers(tatums, beats, bars and sections).
 
 **Dependencies**
+
     - [SegColor]
 
 **How it Works**
