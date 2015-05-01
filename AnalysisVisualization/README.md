@@ -1,6 +1,6 @@
-##AnalysisVisualization
-
 <img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/BackInBlackAnalysisVisual.png"/>
+
+##AnalysisVisualization
 
 A simple visualization to see some of the data provided by Echonest.
 
