@@ -24,7 +24,7 @@ After running this code, a pickle file should be created and stored in the Branc
 
 FindBranches has only two methods. The method that does most of the work is findBranches. FindBranches loops through all of the beats comparing them to every other beat in the song. If the distance between two beats is less than or equal to 80, the the branch is added to the branches dictionary. Keep in mind, findBranches is a void method. It just creates and stores the branches. However, GetBranches loads the pickle file if it is available and returns the dictionary of branches. If the pickle file does not exist, it first calls findBranches to create them.
 
-Below is the code for findBranches. As you can see, it makes use of nested for loops to do all of the (n * (n-1))/2 comparisons. To calculate distance, it uses my BeatDistance class.
+Below is the code for findBranches. As you can see, it makes use of nested for loops to do all of the (n * (n-1))/2 comparisons. To calculate distance, it uses [BeatDistance].
 
 ```python
 def findBranches(audio_file):
@@ -58,3 +58,4 @@ def findBranches(audio_file):
 
 In the dictionary the key is equal to the first beat being compared. The value for each key is a list of tuples holding the branchable beat and the distance between the key and that beat. 
 
+[BeatDistance]: https://github.com/jlstack/PythonEchonestRemix/tree/master/BeatDistance
