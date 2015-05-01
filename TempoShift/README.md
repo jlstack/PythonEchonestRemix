@@ -10,25 +10,25 @@ In my experience, tempo shifting does not work if you try to modify anything lar
 
 **Dependencies**
 
--dirac
--pyaudio
+    -aqplayer
 
 **Example**
 
 The example below makes every beat a little faster in tempo than the one before it. It starts out with a ratio of 1.25, which is slower than the original and moves up to a ratio of .75, which is faster than the original. In short, the song starts out slow but ends faster than the original.
 
 ```python
-audiofile = audio.LocalAudioFile("Sir Duke.m4a")
-    player = Player(audiofile)
-    beats = audiofile.analysis.beats
-    for beat in beats:
-        ratio = 1.25 - ((float(beat.absolute_context()[0]) / float(len(beats))) * .5)
-        print ratio
-        beat_audio = beat.render()
-        scaled_beat = dirac.timeScale(beat_audio.data, ratio)
-        ts = audio.AudioData(ndarray=scaled_beat, shape=scaled_beat.shape,
-                                     sampleRate=audiofile.sampleRate, numChannels=scaled_beat.shape[1])
-        player.play_from_AudioData(ts)
-    player.close_stream()
+song = "15 Sir Duke.m4a"
+audiofile = audio.LocalAudioFile(song)
+player = Player()
+beats = audiofile.analysis.beats
+for beat in beats:
+    ratio = 1.25 - ((float(beat.absolute_context()[0]) / float(len(beats))) * .5)
+    player.shift_tempo_and_play(beat, ratio)
+player.close_stream()
 ```
 
+**Progress Made**
+
+The real progress made is not merely this program. What I am trying to demonstrate is that now, [aqplayer] has the ability to tempo shift in real time! Just give your player the AudioQuantum and shift ratio and it will do it all for you using the power of dirac.
+
+[aqplayer]: https://github.com/jlstack/PythonEchonestRemix/tree/master/aqplayer
