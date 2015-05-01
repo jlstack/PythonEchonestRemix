@@ -4,11 +4,11 @@ import echonest.remix.audio as audio
 import matplotlib.pyplot as plt
 import SegColor
 import aqplayer
-import threading
 
-audio_file = audio.LocalAudioFile("MP3Songs/15 Sir Duke.m4a")
-audio_data = audio_file.render().data
-audio_data = (audio_data[:, 0] + audio_data[:, 1]) / 2
+SONG_DIR = "MP3Songs/"
+SONG = "15 Sir Duke.m4a"
+
+audio_file = audio.LocalAudioFile(SONG_DIR + SONG)
 bounds = SegColor.normalizeColor(audio_file)
 
 segments = audio_file.analysis.segments
@@ -54,14 +54,21 @@ for tat in tatums:
     ax.plot([tat.start, tat.start], [-52.5, -60], linewidth=2.5, color='red')
 
 
-ax.set_xlim([0, 15])
+ax.set_xlim([0, 10])
 ax.set_ylim(-60, 0)
 ax.legend()
 
+fig.suptitle(SONG, fontsize=20)
+plt.xlabel('Seconds', fontsize=16)
+plt.ylabel('Decibels (dB)', fontsize=16)
+plt.savefig("SirDukeAnalysisVisual.png")
+plt.show(block=True)
 
+
+# Still needs work
+"""
 curr_beat = beats[0]
-cursor, = ax.plot(curr_beat.start, -55, color='green', markersize=10, marker='s')
-plt.show(block=False)
+# cursor, = ax.plot(curr_beat.start, -55, color='green', markersize=10, marker='s')
 playing = True
 
 
@@ -70,8 +77,8 @@ def update_cursor():
     last_beat = curr_beat
     while playing:
         if last_beat != curr_beat:
-            cursor.set_xdata(curr_beat.start)
-            fig.canvas.draw()
+            # cursor.set_xdata(curr_beat.start)
+            # fig.canvas.draw(blit=True)
             last_beat = curr_beat
 
 
@@ -86,9 +93,9 @@ def play_music():
     playing = False
     player.close_stream()
 
+#thread1 = threading.Thread(target=play_music)
+#thread2 = threading.Thread(target=update_cursor)
 
-thread1 = threading.Thread(target=play_music)
-thread2 = threading.Thread(target=update_cursor)
-
-thread1.start()
-thread2.start()
+#thread1.start()
+#thread2.start()
+"""
