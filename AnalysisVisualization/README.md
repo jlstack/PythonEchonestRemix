@@ -1,4 +1,4 @@
-<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/BackInBlackAnalysisVisual.png"/>
+<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/BackInBlackAnalysisVisual.png" height="400" width="400" align="middle"/>
 
 ##AnalysisVisualization
 
@@ -13,7 +13,7 @@ It is often difficult for people to understand the data that Echonest provides f
 
 **How it Works**
 
-<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/SirDukeAnalysisVisual.png"/>
+<img src="https://github.com/jlstack/PythonEchonestRemix/blob/master/AnalysisVisualization/Images/SirDukeAnalysisVisual.png" height="400" width="400" align="middle"/>
 
 AnalysisVisualization first plots the audio. Echonest provides you with "loudness" information for each segment. For each segment, I plotted a line between the "loudness_begin" to the "loudness_max" (y values). For the x values, Echonest provides the "start" time of each segment and the "time_loudness_max" (which is a time offset relative to the "start" time). I then connected the "loudness_max" point to the start of the next segment and shaded the whole area below. For the colors, I used [SegColor]. Below is the code I used to accomplish this step.
 
