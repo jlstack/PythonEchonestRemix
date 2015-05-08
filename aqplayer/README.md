@@ -15,6 +15,7 @@ Aqplayer first creates a Pyaudio object. It then opens a Pyaudio stream with som
 **Dependencies**
 
 To use aqplayer.py, you will need:
+
       - pyaudio
       - ffmpeg
       - pypitch
