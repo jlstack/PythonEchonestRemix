@@ -7,10 +7,12 @@ class Player:
     Plays an echonest.remix.audio.AudioQuantum given an echonest.remix.audio.LocalAudioFile.
     It opens a pyaudio stream and feeds it the wave frames to be played.
     """
-
     def __init__(self):
+        """
+        Creates a Player object
+        Special thanks to Dr.Parry for adding linux compatibility
+        """
         if sys.platform == 'linux2':
-            # make sure you've started this with $ padsp python infinite_playlist [...]
             import ossaudiodev
 
             self.stream = ossaudiodev.open('w')
@@ -30,41 +32,50 @@ class Player:
         """
         import dirac
         import numpy as np
-
-        ad = audio_quantum.render()
-        scaled_beat = dirac.timeScale(ad.data, ratio)
-        self.stream.write(scaled_beat.astype(np.int16).tostring())
+        ad = audio_quantum.render()  # gets AudioData object for AudioQuantum
+        scaled_beat = dirac.timeScale(ad.data, ratio)  # modifies tempo using dirac
+        self.stream.write(scaled_beat.astype(np.int16).tostring())  # writes data to stream
 
 
     def shift_semitones_and_play(self, audio_quantum, semitones):
+        """
+        Takes an echonest.remix.audio.AudioQuantum and a number from -6 to 6.
+        It first shifts the AudioQuantum's semitones by the specified input using pypitch
+        and then writes the modified data to the stream.
+        """
         import numpy as np
         from pypitch import PyPitch
 
-        ad = audio_quantum.render()
-        new_data = PyPitch.shiftPitchSemiTones(ad.data, semitones)
-        self.stream.write(new_data.astype(np.int16).tostring())
+        ad = audio_quantum.render()  # gets AudioData object for AudioQuantum
+        new_data = PyPitch.shiftPitchSemiTones(ad.data, semitones)  # shifts semitones using pypitch
+        self.stream.write(new_data.astype(np.int16).tostring())  # writes data to stream
 
 
     def shift_octaves_and_play(self, audio_quantum, octaves):
+        """
+        Takes an echonest.remix.audio.AudioQuantum and a number of octaves to shift by.
+        It first shifts the AudioQuantum's semitones by the specified input using pypitch
+        and then writes the modified data to the stream.
+        """
         import numpy as np
         from pypitch import PyPitch
 
-        ad = audio_quantum.render()
-        new_data = PyPitch.shiftPitchOctaves(ad.data, octaves)
-        self.stream.write(new_data.astype(np.int16).tostring())
+        ad = audio_quantum.render()  # gets AudioData object for AudioQuantum
+        new_data = PyPitch.shiftPitchOctaves(ad.data, octaves)  # shifts octaves using pypitch
+        self.stream.write(new_data.astype(np.int16).tostring())  # writes data to stream
 
 
     def play(self, audio_quantum):
         """
         Accepts any echonest.remix.audio.AudioQuantum and audibly plays it for you using pyaudio.
         """
-        ad = audio_quantum.render()
-        self.stream.write(ad.data.tostring())
+        ad = audio_quantum.render()  # gets AudioData object for AudioQuantum
+        self.stream.write(ad.data.tostring())  # writes data to stream
 
 
     def close_stream(self):
         """
-        closes pyaudio stream
+        closes pyaudio stream and pyaudio object if necessary
         """
         self.stream.close()
         if self.p is not None:
